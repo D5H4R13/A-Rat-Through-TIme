@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://cou8x0s13a0jt"]
+
+[ext_resource type="Script" path="res://scripts/world and level select/loading_screen.gd" id="1_8syw7"]
+
+[sub_resource type="Gradient" id="Gradient_obn88"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d8vyu"]
+gradient = SubResource("Gradient_obn88")
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_8syw7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_d8vyu")
+
+[node name="Loading" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -11.5
+offset_right = 37.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."

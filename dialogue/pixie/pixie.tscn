@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dblruh5n3j5vb"]
+
+[ext_resource type="Script" path="res://dialogue/pixie/pixie.gd" id="1_abhbd"]
+[ext_resource type="Texture2D" uid="uid://8ktttr8mplm6" path="res://assets/base assets/pixie.png" id="2_0tmov"]
+[ext_resource type="PackedScene" uid="uid://drnvgiih42rcs" path="res://dialogue/dialogue.tscn" id="3_f68uy"]
+[ext_resource type="Script" path="res://dialogue/pixie/dialoguepixie.gd" id="4_m5m51"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ph7a"]
+size = Vector2(39.5, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dxfd"]
+size = Vector2(158, 69)
+
+[node name="Dummy" type="CharacterBody2D"]
+script = ExtResource("1_abhbd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.71875, 0.75)
+texture = ExtResource("2_0tmov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, -1)
+shape = SubResource("RectangleShape2D_6ph7a")
+
+[node name="ChatDetectionArea" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea"]
+shape = SubResource("RectangleShape2D_1dxfd")
+
+[node name="Dialogue" parent="." instance=ExtResource("3_f68uy")]
+z_index = 2
+offset_top = -35.0
+offset_bottom = -35.0
+script = ExtResource("4_m5m51")
+
+[connection signal="body_entered" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

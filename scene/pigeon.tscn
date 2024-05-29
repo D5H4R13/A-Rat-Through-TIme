@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://cc5udvt7cdctf"]
+
+[ext_resource type="Script" path="res://scripts/Pigeon.gd" id="1_e2p78"]
+[ext_resource type="Texture2D" uid="uid://cjdvmg2pbkum4" path="res://assets/base assets/enemy/pigeon_flight_animation.png" id="2_srab6"]
+[ext_resource type="PackedScene" uid="uid://ffnbogjsdmxn" path="res://scene/healthbar.tscn" id="3_mu40s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fag08"]
+atlas = ExtResource("2_srab6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suogf"]
+atlas = ExtResource("2_srab6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xex5v"]
+atlas = ExtResource("2_srab6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrk81"]
+atlas = ExtResource("2_srab6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xifsf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fag08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suogf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xex5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrk81")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04nii"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnfle"]
+radius = 153.17
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2jswq"]
+radius = 17.0
+
+[node name="Pigeon" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_e2p78")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xifsf")
+autoplay = "default"
+frame_progress = 0.483701
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_04nii")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_lnfle")
+
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_2jswq")
+
+[node name="Healthbar" parent="." instance=ExtResource("3_mu40s")]
+offset_left = -15.0
+offset_top = -27.0
+offset_right = 10.0
+offset_bottom = -22.0
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="HitBoxArea2D" to="." method="_on_hit_box_shape_2d_area_entered"]

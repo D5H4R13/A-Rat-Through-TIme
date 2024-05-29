@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=3 uid="uid://b1ppkef85f5qu"]
+
+[ext_resource type="Texture2D" uid="uid://doc4dt6g020iu" path="res://assets/base assets/enemy/roach.png" id="1_fhvlu"]
+[ext_resource type="Script" path="res://scripts/Roach.gd" id="1_iw32d"]
+[ext_resource type="PackedScene" uid="uid://ffnbogjsdmxn" path="res://scene/healthbar.tscn" id="2_iufj4"]
+[ext_resource type="Texture2D" uid="uid://c5orny1philfd" path="res://assets/base assets/enemy/roach_walk-Sheet.png" id="3_ok3to"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb7g0"]
+atlas = ExtResource("1_fhvlu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqqpv"]
+atlas = ExtResource("3_ok3to")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lutu4"]
+atlas = ExtResource("3_ok3to")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62a55"]
+atlas = ExtResource("3_ok3to")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1rkl"]
+atlas = ExtResource("3_ok3to")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3o5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb7g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqqpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lutu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62a55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1rkl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqt6i"]
+size = Vector2(63, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4meh"]
+size = Vector2(68, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0mte"]
+size = Vector2(74, 36.5)
+
+[node name="roach" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_iw32d")
+
+[node name="Node2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0.375, -10)
+scale = Vector2(2.21094, 2.125)
+sprite_frames = SubResource("SpriteFrames_g3o5r")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_rqt6i")
+
+[node name="HurtboxArea2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxArea2D"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_g4meh")
+
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+position = Vector2(0, -2.75)
+shape = SubResource("RectangleShape2D_k0mte")
+
+[node name="Healthbar" parent="." instance=ExtResource("2_iufj4")]
+offset_left = -21.0
+offset_top = -44.0
+offset_right = 22.0
+offset_bottom = -35.0
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+wait_time = 0.8
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-19, -19)
+
+[node name="FaceRayCast" type="RayCast2D" parent="."]
+position = Vector2(-27, -6)
+target_position = Vector2(-9, 0)
+
+[connection signal="area_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_area_entered"]

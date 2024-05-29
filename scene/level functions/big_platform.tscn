@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://blsv7aklk4df8"]
+
+[ext_resource type="Script" path="res://scripts/big_platform.gd" id="1_m2sll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhrkh"]
+size = Vector2(190, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e1a2"]
+size = Vector2(192, 44)
+
+[node name="Big Platform" type="StaticBody2D"]
+script = ExtResource("1_m2sll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hhrkh")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_7e1a2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

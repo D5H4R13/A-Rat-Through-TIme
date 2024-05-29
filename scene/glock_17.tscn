@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddhkdyqncn462"]
+
+[ext_resource type="Script" path="res://scripts/Glock17.gd" id="1_ahwbi"]
+[ext_resource type="Texture2D" uid="uid://bfpr0xd7s0bch" path="res://assets/test/glock 17.jpg" id="2_wkn32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13v7o"]
+size = Vector2(32, 28)
+
+[node name="Glock17" type="Node2D"]
+script = ExtResource("1_ahwbi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.00012207, 0)
+scale = Vector2(0.00836383, 0.0100277)
+texture = ExtResource("2_wkn32")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_13v7o")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

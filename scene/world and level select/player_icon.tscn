@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://h3gg5e4ds20j"]
+
+[ext_resource type="Texture2D" uid="uid://ln5dw0cybyae" path="res://assets/test/test_rat2.png" id="1_5qrrh"]
+
+[node name="PlayerIcon" type="TextureRect"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 33.0
+offset_bottom = 33.0
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("1_5qrrh")

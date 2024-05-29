@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqcjkr0fu8sc2"]
+
+[ext_resource type="Script" path="res://scripts/world and level select/world_select.gd" id="1_t8wa3"]
+[ext_resource type="Texture2D" uid="uid://dpadne0j240u4" path="res://assets/World and level select/Mellow node background.jpg" id="2_opwdm"]
+[ext_resource type="PackedScene" uid="uid://56wqq3f15xbq" path="res://scene/world and level select/world_icon.tscn" id="3_8moh5"]
+[ext_resource type="PackedScene" uid="uid://bpnnnc0vfvop1" path="res://scene/world and level select/Level_select_2.tscn" id="4_ugene"]
+[ext_resource type="PackedScene" uid="uid://dd8o6xjsoqxiu" path="res://scene/world and level select/Level_select_3.tscn" id="5_4tvi5"]
+[ext_resource type="PackedScene" uid="uid://h3gg5e4ds20j" path="res://scene/world and level select/player_icon.tscn" id="6_art3c"]
+
+[node name="WorldSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t8wa3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_opwdm")
+
+[node name="WolrdIcon" parent="." instance=ExtResource("3_8moh5")]
+offset_left = 120.0
+offset_top = 304.0
+offset_right = 184.0
+offset_bottom = 368.0
+
+[node name="WolrdIcon2" parent="." instance=ExtResource("3_8moh5")]
+offset_left = 407.0
+offset_top = 120.0
+offset_right = 471.0
+offset_bottom = 184.0
+world_index = 2
+level_select_packed = ExtResource("4_ugene")
+
+[node name="WolrdIcon3" parent="." instance=ExtResource("3_8moh5")]
+offset_left = 704.0
+offset_top = 296.0
+offset_right = 768.0
+offset_bottom = 360.0
+world_index = 3
+level_select_packed = ExtResource("5_4tvi5")
+
+[node name="PlayerIcon" parent="." instance=ExtResource("6_art3c")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 65.0
+offset_bottom = 65.0

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://jb5yb8643oku"]
+
+[ext_resource type="Texture2D" uid="uid://bxgk63e0gvcsh" path="res://assets/base assets/dash_trail.png" id="1_8pm10"]
+[ext_resource type="Script" path="res://scripts/DashTrail.gd" id="2_m7h02"]
+
+[node name="DashTrail" type="Sprite2D"]
+show_behind_parent = true
+texture_filter = 1
+scale = Vector2(2.3125, 2.65625)
+texture = ExtResource("1_8pm10")
+script = ExtResource("2_m7h02")

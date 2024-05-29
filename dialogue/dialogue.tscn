@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://drnvgiih42rcs"]
+
+[ext_resource type="Script" path="res://dialogue/mysterman/dialoguePlayermysterman.gd" id="1_an1ab"]
+[ext_resource type="Texture2D" uid="uid://21dluakd26em" path="res://assets/base assets/dialogue_box.png" id="1_p2c22"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_an1ab")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -131.0
+offset_right = 148.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_p2c22")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+z_index = 2
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 118.0
+offset_bottom = 33.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "name"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+z_index = 2
+layout_mode = 0
+offset_left = 11.0
+offset_top = 29.0
+offset_right = 374.0
+offset_bottom = 153.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Chatting"

@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu4p00pj6pvhp"]
+
+[ext_resource type="Script" path="res://scripts/world and level select/level_select.gd" id="1_ooq35"]
+[ext_resource type="Texture2D" uid="uid://8fy1rk0rvcfp" path="res://assets/World and level select/grass to city background.jpg" id="2_c7qmw"]
+[ext_resource type="PackedScene" uid="uid://q0tg1dbvd3et" path="res://scene/world and level select/level_icon.tscn" id="3_mx7wg"]
+[ext_resource type="PackedScene" uid="uid://h3gg5e4ds20j" path="res://scene/world and level select/player_icon.tscn" id="4_vfop6"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ooq35")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c7qmw")
+expand_mode = 1
+
+[node name="LevelIcon0" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("3_mx7wg")]
+offset_left = 93.0
+offset_top = 158.0
+offset_right = 157.0
+offset_bottom = 222.0
+level_name = "0"
+next_scene_path = "res://scene/levels/tutorial/tutorial1-1.tscn"
+next_level_down = NodePath("../LevelIcon1")
+
+[node name="LevelIcon1" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down") instance=ExtResource("3_mx7wg")]
+offset_left = 158.0
+offset_top = 271.0
+offset_right = 222.0
+offset_bottom = 335.0
+next_scene_path = "res://scene/levels/world1/forest1-1.tscn"
+next_level_up = NodePath("../LevelIcon0")
+next_level_down = NodePath("../LevelIcon2")
+
+[node name="LevelIcon2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down") instance=ExtResource("3_mx7wg")]
+offset_left = 262.0
+offset_top = 360.0
+offset_right = 326.0
+offset_bottom = 424.0
+level_name = "2"
+next_scene_path = "res://scene/levels/world1/forest2-1.tscn"
+next_level_up = NodePath("../LevelIcon1")
+next_level_down = NodePath("../LevelIcon3")
+
+[node name="LevelIcon3" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("3_mx7wg")]
+offset_left = 328.0
+offset_top = 456.0
+offset_right = 392.0
+offset_bottom = 520.0
+level_name = "3"
+next_scene_path = "res://scene/levels/world1/2-3-1.tscn"
+next_level_up = NodePath("../LevelIcon2")
+next_level_right = NodePath("../LevelIcon4")
+
+[node name="LevelIcon4" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("3_mx7wg")]
+offset_left = 568.0
+offset_top = 480.0
+offset_right = 632.0
+offset_bottom = 544.0
+level_name = "4"
+next_scene_path = "res://scene/levels/world1/2-4-2.tscn"
+next_level_up = NodePath("../LevelIcon5")
+next_level_left = NodePath("../LevelIcon3")
+
+[node name="LevelIcon5" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down") instance=ExtResource("3_mx7wg")]
+offset_left = 656.0
+offset_top = 368.0
+offset_right = 720.0
+offset_bottom = 432.0
+level_name = "5"
+next_level_up = NodePath("../LevelIcon0")
+next_level_down = NodePath("../LevelIcon4")
+
+[node name="PlayerIcon" parent="." instance=ExtResource("4_vfop6")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 65.0
+offset_bottom = 65.0

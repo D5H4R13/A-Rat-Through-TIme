@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://e00my7ykduql"]
+
+[ext_resource type="Texture2D" uid="uid://cjdvmg2pbkum4" path="res://assets/base assets/enemy/pigeon_flight_animation.png" id="1_gsf57"]
+[ext_resource type="Script" path="res://scripts/pooper.gd" id="1_oyvgv"]
+[ext_resource type="Texture2D" uid="uid://y43eg6aji2s4" path="res://assets/base assets/enemy/pigeon.png" id="2_6hsdj"]
+[ext_resource type="PackedScene" uid="uid://d1ln3afmj1k7s" path="res://scene/poop_bullet.tscn" id="2_ht30u"]
+[ext_resource type="PackedScene" uid="uid://ffnbogjsdmxn" path="res://scene/healthbar.tscn" id="5_png2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j4mt"]
+atlas = ExtResource("1_gsf57")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2r83"]
+atlas = ExtResource("1_gsf57")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7xkm"]
+atlas = ExtResource("1_gsf57")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f87np"]
+atlas = ExtResource("1_gsf57")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btawu"]
+atlas = ExtResource("2_6hsdj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6ad5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j4mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2r83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7xkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f87np")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btawu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o47tb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qccup"]
+
+[node name="pooper" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+motion_mode = 1
+script = ExtResource("1_oyvgv")
+BULLET = ExtResource("2_ht30u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_j6ad5")
+animation = &"flying"
+autoplay = "flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("CapsuleShape2D_o47tb")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 150)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="ReloadTimer" type="Timer" parent="RayCast2D"]
+wait_time = 1.5
+one_shot = true
+
+[node name="Healthbar" parent="." instance=ExtResource("5_png2x")]
+offset_left = -15.0
+offset_top = -19.0
+offset_right = 15.0
+offset_bottom = -15.0
+
+[node name="HitboxArea2D" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea2D"]
+shape = SubResource("CapsuleShape2D_qccup")
+
+[connection signal="area_entered" from="HitboxArea2D" to="." method="_on_hitbox_area_2d_area_entered"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://3r427nn5kidw"]
+
+[ext_resource type="Script" path="res://scripts/future_vending_machine.gd" id="1_sp4ae"]
+[ext_resource type="Texture2D" uid="uid://c330m4a2xlktm" path="res://assets/base assets/Vending_machine.png" id="2_up17b"]
+[ext_resource type="PackedScene" uid="uid://d38kidgx7415f" path="res://scene/level functions/ShopMenu.tscn" id="3_wv110"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a386g"]
+size = Vector2(52, 78)
+
+[node name="VendingMachine" type="CharacterBody2D"]
+script = ExtResource("1_sp4ae")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_a386g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-1, 0)
+scale = Vector2(0.146484, 0.158203)
+texture = ExtResource("2_up17b")
+
+[node name="ShopMenu" parent="Area2D" instance=ExtResource("3_wv110")]
+visible = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

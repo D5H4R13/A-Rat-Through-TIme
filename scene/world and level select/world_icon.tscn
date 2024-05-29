@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://56wqq3f15xbq"]
+
+[ext_resource type="Script" path="res://scripts/world and level select/world_icon.gd" id="1_uaoyf"]
+[ext_resource type="PackedScene" uid="uid://bu4p00pj6pvhp" path="res://scene/world and level select/level_select_1.tscn" id="2_5sgqw"]
+
+[sub_resource type="Gradient" id="Gradient_cl0vp"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eum2t"]
+gradient = SubResource("Gradient_cl0vp")
+
+[node name="WolrdIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset = Vector2(32, 32)
+script = ExtResource("1_uaoyf")
+level_select_packed = ExtResource("2_5sgqw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = -1.0
+text = "World 1"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("GradientTexture1D_eum2t")
+expand_mode = 1

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtw1nh2smuhfq"]
+
+[ext_resource type="Script" path="res://scripts/finish.gd" id="1_t3vjj"]
+[ext_resource type="Texture2D" uid="uid://cvhmabxlvfa4l" path="res://assets/base assets/cheese.png" id="2_h5avd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtxy6"]
+size = Vector2(96, 64)
+
+[node name="Finish" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_t3vjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1.90735e-06, -4.76837e-07)
+scale = Vector2(5, 4.157)
+texture = ExtResource("2_h5avd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qtxy6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

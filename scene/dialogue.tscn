@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://g7h02bg3aidb"]
+
+[ext_resource type="Texture2D" uid="uid://21dluakd26em" path="res://assets/base assets/dialogue_box.png" id="1_i44wy"]
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_pi4me"]
+
+[node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_pi4me")
+d_file = "res://dialogue/json/strange_man_chat.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+offset_left = 95.0
+offset_top = 25.0
+offset_right = 865.0
+offset_bottom = 208.0
+texture = ExtResource("1_i44wy")
+region_rect = Rect2(0.0793343, 0.296537, 31.7557, 31.08)
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 21.0
+offset_right = 287.0
+offset_bottom = 46.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="Chat" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 48.0
+offset_right = 705.0
+offset_bottom = 149.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Chatting..."

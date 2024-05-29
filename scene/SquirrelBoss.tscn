@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7xhm10icbj5b"]
+
+[ext_resource type="Script" path="res://scripts/Squirrel.gd" id="1_bn1th"]
+[ext_resource type="PackedScene" uid="uid://dlogo7l3k6283" path="res://scene/acorn.tscn" id="2_c20g4"]
+[ext_resource type="Texture2D" uid="uid://5wh85kypcgne" path="res://assets/base assets/enemy/squirrel.png" id="3_rq0uj"]
+[ext_resource type="PackedScene" uid="uid://ffnbogjsdmxn" path="res://scene/healthbar.tscn" id="4_7qrp0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xdqkl"]
+radius = 26.0
+height = 58.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybd4q"]
+atlas = ExtResource("3_rq0uj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yh7d0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybd4q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wo0w"]
+radius = 29.2746
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g028o"]
+radius = 279.088
+
+[node name="Squirrel" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_bn1th")
+acorn = ExtResource("2_c20g4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xdqkl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_yh7d0")
+autoplay = "default"
+frame_progress = 0.908185
+
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+shape = SubResource("CircleShape2D_8wo0w")
+
+[node name="Healthbar" parent="." instance=ExtResource("4_7qrp0")]
+offset_left = -25.0
+offset_top = -51.0
+offset_right = 24.0
+offset_bottom = -42.0
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 4
+
+[node name="DetectArea2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea2D"]
+shape = SubResource("CircleShape2D_g028o")
+
+[connection signal="area_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_area_entered"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="DetectArea2D" to="." method="body_entered"]
+[connection signal="body_exited" from="DetectArea2D" to="." method="body_exited"]

@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd8o6xjsoqxiu"]
+
+[ext_resource type="Script" path="res://scripts/world and level select/level_select.gd" id="1_m7hji"]
+[ext_resource type="Texture2D" uid="uid://bh8x28npb3f0b" path="res://assets/World and level select/Future New York City Background.png" id="2_0qf68"]
+[ext_resource type="PackedScene" uid="uid://q0tg1dbvd3et" path="res://scene/world and level select/level_icon.tscn" id="3_ff1rl"]
+[ext_resource type="PackedScene" uid="uid://h3gg5e4ds20j" path="res://scene/world and level select/player_icon.tscn" id="4_t2k7d"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7hji")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0qf68")
+expand_mode = 1
+
+[node name="LevelIcon1" parent="." node_paths=PackedStringArray("next_level_down", "next_level_right") instance=ExtResource("3_ff1rl")]
+offset_left = 184.0
+offset_top = 264.0
+offset_right = 248.0
+offset_bottom = 328.0
+next_level_down = NodePath("../LevelIcon2")
+next_level_right = NodePath("../LevelIcon3")
+
+[node name="LevelIcon2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("3_ff1rl")]
+offset_left = 224.0
+offset_top = 464.0
+offset_right = 288.0
+offset_bottom = 528.0
+level_name = "2"
+next_level_up = NodePath("../LevelIcon1")
+next_level_right = NodePath("../LevelIcon3")
+
+[node name="LevelIcon3" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("3_ff1rl")]
+offset_left = 392.0
+offset_top = 344.0
+offset_right = 456.0
+offset_bottom = 408.0
+level_name = "3"
+next_level_up = NodePath("../LevelIcon4")
+next_level_down = NodePath("../LevelIcon5")
+next_level_left = NodePath("../LevelIcon2")
+next_level_right = NodePath("../LevelIcon4")
+
+[node name="LevelIcon4" parent="." node_paths=PackedStringArray("next_level_down", "next_level_left", "next_level_right") instance=ExtResource("3_ff1rl")]
+offset_left = 544.0
+offset_top = 248.0
+offset_right = 608.0
+offset_bottom = 312.0
+level_name = "4"
+next_level_down = NodePath("../LevelIcon5")
+next_level_left = NodePath("../LevelIcon3")
+next_level_right = NodePath("../LevelIcon6")
+
+[node name="LevelIcon5" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("3_ff1rl")]
+offset_left = 544.0
+offset_top = 456.0
+offset_right = 608.0
+offset_bottom = 520.0
+level_name = "5"
+next_level_up = NodePath("../LevelIcon4")
+next_level_left = NodePath("../LevelIcon3")
+
+[node name="LevelIcon6" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("3_ff1rl")]
+offset_left = 680.0
+offset_top = 240.0
+offset_right = 744.0
+offset_bottom = 304.0
+level_name = "6"
+next_level_up = NodePath("../LevelIcon7")
+next_level_down = NodePath("../LevelIcon8")
+next_level_left = NodePath("../LevelIcon4")
+next_level_right = NodePath("../LevelIcon7")
+
+[node name="LevelIcon7" parent="." node_paths=PackedStringArray("next_level_down", "next_level_left") instance=ExtResource("3_ff1rl")]
+offset_left = 840.0
+offset_top = 152.0
+offset_right = 904.0
+offset_bottom = 216.0
+level_name = "7"
+next_level_down = NodePath("../LevelIcon8")
+next_level_left = NodePath("../LevelIcon6")
+
+[node name="LevelIcon8" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("3_ff1rl")]
+offset_left = 840.0
+offset_top = 488.0
+offset_right = 904.0
+offset_bottom = 552.0
+level_name = "8"
+next_level_up = NodePath("../LevelIcon7")
+next_level_left = NodePath("../LevelIcon6")
+
+[node name="PlayerIcon" parent="." instance=ExtResource("4_t2k7d")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 65.0
+offset_bottom = 65.0

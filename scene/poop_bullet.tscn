@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ln3afmj1k7s"]
+
+[ext_resource type="Texture2D" uid="uid://i4rfwtm245vo" path="res://assets/base assets/enemy/pigeon_poop.png" id="1_bmlt6"]
+[ext_resource type="Script" path="res://scripts/poop_bullet.gd" id="1_pnbsu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvm1u"]
+
+[node name="poop_bullet" type="Node2D"]
+script = ExtResource("1_pnbsu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_bmlt6")
+
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+shape = SubResource("CircleShape2D_yvm1u")
+
+[connection signal="area_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_area_entered"]
+[connection signal="body_entered" from="HitBoxArea2D" to="." method="_on_hit_box_area_2d_body_entered"]

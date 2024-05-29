@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkww065jf6j7l"]
+
+[ext_resource type="PackedScene" uid="uid://blr8r7l5ygafu" path="res://scene/Rat.tscn" id="1_3041l"]
+[ext_resource type="PackedScene" uid="uid://jgyon26wo2cd" path="res://scene/levels/test/platform.tscn" id="2_lww0n"]
+[ext_resource type="PackedScene" uid="uid://dblruh5n3j5vb" path="res://dialogue/pixie/pixie.tscn" id="3_44216"]
+
+[sub_resource type="Gradient" id="Gradient_6lpf1"]
+offsets = PackedFloat32Array(0.980519)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vcat5"]
+gradient = SubResource("Gradient_6lpf1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je2eg"]
+size = Vector2(481, 24)
+
+[node name="Testing_level" type="Node2D"]
+
+[node name="Tony" parent="." instance=ExtResource("1_3041l")]
+position = Vector2(88, 392)
+
+[node name="Platform" parent="." instance=ExtResource("2_lww0n")]
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Platform2"]
+offset_left = 488.0
+offset_top = 280.0
+offset_right = 968.0
+offset_bottom = 304.0
+texture = SubResource("GradientTexture1D_vcat5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(728, 292)
+shape = SubResource("RectangleShape2D_je2eg")
+
+[node name="Dummy" parent="." instance=ExtResource("3_44216")]
+position = Vector2(304, 382)
