@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://blr8r7l5ygafu"]
+[gd_scene load_steps=85 format=3 uid="uid://blr8r7l5ygafu"]
 
 [ext_resource type="Script" path="res://scripts/Rat.gd" id="1_yaib4"]
 [ext_resource type="Texture2D" uid="uid://bchse30vwfhkb" path="res://assets/base assets/tony/test_rat2_idle-Sheet.png" id="2_5yt6x"]
@@ -524,15 +524,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eaht6"]
-size = Vector2(34.3294, 115.697)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urstt"]
+size = Vector2(21.8007, 101.373)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6thek"]
 radius = 12.0
 height = 42.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4lki"]
-size = Vector2(38, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocxy8"]
 size = Vector2(32, 40)
@@ -551,25 +548,25 @@ animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.34465e-07, 2.75005)
+position = Vector2(4.16072, 1)
 scale = Vector2(0.932145, 0.453771)
-shape = SubResource("RectangleShape2D_eaht6")
+shape = SubResource("RectangleShape2D_urstt")
 
 [node name="Checkpoint Detector" type="Area2D" parent="."]
 position = Vector2(-2.38419e-07, -2.38419e-07)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint Detector"]
-position = Vector2(6, 8)
+position = Vector2(5, 0)
 shape = SubResource("CapsuleShape2D_6thek")
 
 [node name="HurtBoxArea2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 3
 
-[node name="Area2D" type="CollisionShape2D" parent="HurtBoxArea2D"]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_f4lki")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBoxArea2D"]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(1, -15, 1, -9, -3, -5, -7, 3, -7, 20, -1, 24, 8, 24, 11, 19, 7, -6, 18, -4, 9, -22, 4, -22)
 
 [node name="AttackBoxArea2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -577,7 +574,7 @@ collision_mask = 2
 monitoring = false
 
 [node name="HitBoxCollisionShape2D" type="CollisionShape2D" parent="AttackBoxArea2D"]
-position = Vector2(32, 0)
+position = Vector2(35, -2)
 shape = SubResource("RectangleShape2D_ocxy8")
 disabled = true
 
