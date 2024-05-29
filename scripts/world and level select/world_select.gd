@@ -26,6 +26,6 @@ func _input(event):
 			get_tree().get_root().remove_child(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	testEsc()
 
