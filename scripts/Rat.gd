@@ -7,7 +7,8 @@ var JUMP_VELOCITY = -500.0
 @onready var healthbar = $Healthbar
 @onready var attack_timer = $AttackTimer
 @onready var invulnerability_timer = $InvulnerabilityTimer
-@onready var hurtbox = $AttackBoxArea2D/HitBoxCollisionShape2D
+@onready var attack_box = $AttackBoxArea2D/HitBoxCollisionShape2D
+@onready var hurt_box = $HurtBoxArea2D
 var vulnerable = true
 
 
@@ -77,10 +78,12 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right") 
 	# Handles hitbox h_flip
 	if direction < 0:
-		hurtbox.position.x = -35
+		attack_box.position.x = -35
+		hurt_box.scale.x = -1
 
 	if direction > 0:
-		hurtbox.position.x = 35
+		attack_box.position.x = 35
+		hurt_box.scale.x = 1
 
 		
 	if direction and !isDashing:
@@ -92,12 +95,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("left_click"):
 		#if there is no timer then hitbox then call timer
 		if attack_timer.is_stopped():
-			hurtbox.disabled = false
+			attack_box.disabled = false
 			attack_timer.start()
 			#we need attack animation
 			sprite_2d.play("attack")
 	else:
-		hurtbox.disabled = true
+		attack_box.disabled = true
 	
 	# Handles shooting
 	if Input.is_action_just_pressed("right_click") and GameManager.ammo > 0 and GameManager.learned_shooting:
