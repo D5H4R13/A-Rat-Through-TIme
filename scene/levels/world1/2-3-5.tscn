@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c3r8kjnfgv3s8" path="res://assets/world1/background/ForestBGpara2.png" id="2_5dcqv"]
 [ext_resource type="Texture2D" uid="uid://bppsw73pin0et" path="res://assets/world1/background/ForestBGpara1.png" id="3_c13wk"]
 [ext_resource type="PackedScene" uid="uid://bid2kpvapinsp" path="res://scene/tilemaps/world1/forest_base_tiles.tscn" id="4_bink7"]
-[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/enemy.tscn" id="5_els04"]
+[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/Roach.tscn" id="5_els04"]
 [ext_resource type="PackedScene" uid="uid://blr8r7l5ygafu" path="res://scene/Rat.tscn" id="5_fcsya"]
 [ext_resource type="PackedScene" uid="uid://hsy3i27supja" path="res://scene/Squirrel.tscn" id="6_fjye6"]
 [ext_resource type="PackedScene" uid="uid://cc5udvt7cdctf" path="res://scene/pigeon.tscn" id="6_i4hq6"]

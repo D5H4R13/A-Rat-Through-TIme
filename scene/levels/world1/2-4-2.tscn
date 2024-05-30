@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3r8kjnfgv3s8" path="res://assets/world1/background/ForestBGpara2.png" id="6_40qpd"]
 [ext_resource type="PackedScene" uid="uid://hsy3i27supja" path="res://scene/Squirrel.tscn" id="7_85l3l"]
 [ext_resource type="PackedScene" uid="uid://blr8r7l5ygafu" path="res://scene/Rat.tscn" id="8_kqcj1"]
-[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/enemy.tscn" id="10_3xpvq"]
+[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/Roach.tscn" id="10_3xpvq"]
 [ext_resource type="PackedScene" uid="uid://k8e1kb743pfq" path="res://scene/coin.tscn" id="13_8hewo"]
 [ext_resource type="PackedScene" uid="uid://dqcjkr0fu8sc2" path="res://scene/world and level select/world_select.tscn" id="13_ppnti"]
 [ext_resource type="PackedScene" uid="uid://bmainlt5yr8qf" path="res://scene/ammo.tscn" id="14_1ghib"]

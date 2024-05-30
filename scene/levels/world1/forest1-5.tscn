@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bk7mljdspn5kl" path="res://scene/level functions/spikes.tscn" id="7_ldaxh"]
 [ext_resource type="PackedScene" uid="uid://be2pg3qk8roy0" path="res://scene/Jump_pizza.tscn" id="7_xur4u"]
 [ext_resource type="PackedScene" uid="uid://beaojotoc53s8" path="res://scene/level functions/fallingspike.tscn" id="8_jfkl6"]
-[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/enemy.tscn" id="9_h5mjb"]
+[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/Roach.tscn" id="9_h5mjb"]
 [ext_resource type="PackedScene" uid="uid://cc5udvt7cdctf" path="res://scene/pigeon.tscn" id="10_lc2jy"]
 [ext_resource type="PackedScene" uid="uid://bjyuk1hhxssc2" path="res://scene/level functions/checkpoint.tscn" id="11_ktuwl"]
 [ext_resource type="PackedScene" uid="uid://e00my7ykduql" path="res://scene/pooper.tscn" id="12_ukd7g"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b8xkoboyhxasv"]
 
 [ext_resource type="Script" path="res://scripts/RoachBoss.gd" id="1_hm7a6"]
-[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/enemy.tscn" id="2_c6xn2"]
+[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/Roach.tscn" id="2_c6xn2"]
 [ext_resource type="Texture2D" uid="uid://doc4dt6g020iu" path="res://assets/base assets/enemy/roach.png" id="2_l1pgr"]
 [ext_resource type="PackedScene" uid="uid://ffnbogjsdmxn" path="res://scene/healthbar.tscn" id="3_mit84"]
 

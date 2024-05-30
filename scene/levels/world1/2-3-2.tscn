@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bppsw73pin0et" path="res://assets/world1/background/ForestBGpara1.png" id="4_n2gbq"]
 [ext_resource type="PackedScene" uid="uid://bid2kpvapinsp" path="res://scene/tilemaps/world1/forest_base_tiles.tscn" id="5_xvwb6"]
 [ext_resource type="PackedScene" uid="uid://clpfgm1iue7xb" path="res://scene/level functions/smallplatform.tscn" id="6_2vgvr"]
-[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/enemy.tscn" id="6_gnxvg"]
+[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/Roach.tscn" id="6_gnxvg"]
 [ext_resource type="PackedScene" uid="uid://bk7mljdspn5kl" path="res://scene/level functions/spikes.tscn" id="6_tr75l"]
 [ext_resource type="PackedScene" uid="uid://beaojotoc53s8" path="res://scene/level functions/fallingspike.tscn" id="7_6owhj"]
 [ext_resource type="PackedScene" uid="uid://cc5udvt7cdctf" path="res://scene/pigeon.tscn" id="7_8fev4"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://be2pg3qk8roy0" path="res://scene/Jump_pizza.tscn" id="14_qedkr"]
 [ext_resource type="PackedScene" uid="uid://dtw1nh2smuhfq" path="res://scene/level functions/finish.tscn" id="14_qn8a0"]
 [ext_resource type="PackedScene" uid="uid://bjyuk1hhxssc2" path="res://scene/level functions/checkpoint.tscn" id="16_5fon5"]
-[ext_resource type="PackedScene" path="res://scene/levels/world1/2-3-3.tscn" id="20_fu5em"]
+[ext_resource type="PackedScene" uid="uid://dkwavmalnbk1a" path="res://scene/levels/world1/2-3-3.tscn" id="20_fu5em"]
 
 [node name="2-3-2" type="Node2D"]
 

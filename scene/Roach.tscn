@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1ppkef85f5qu"]
+[gd_scene load_steps=13 format=3 uid="uid://b1ppkef85f5qu"]
 
 [ext_resource type="Texture2D" uid="uid://doc4dt6g020iu" path="res://assets/base assets/enemy/roach.png" id="1_fhvlu"]
 [ext_resource type="Script" path="res://scripts/Roach.gd" id="1_iw32d"]
@@ -54,9 +54,6 @@ size = Vector2(63, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4meh"]
 size = Vector2(68, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0mte"]
-size = Vector2(74, 36.5)
-
 [node name="roach" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_iw32d")
@@ -84,9 +81,8 @@ shape = SubResource("RectangleShape2D_g4meh")
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
-position = Vector2(0, -2.75)
-shape = SubResource("RectangleShape2D_k0mte")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBoxArea2D"]
+polygon = PackedVector2Array(-28, -5, -8, 4, 13, 4, 33, -6, 12, -15, -8, -15)
 
 [node name="Healthbar" parent="." instance=ExtResource("2_iufj4")]
 offset_left = -21.0
@@ -95,7 +91,8 @@ offset_right = 22.0
 offset_bottom = -35.0
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
-wait_time = 0.8
+wait_time = 0.5
+one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-19, -19)

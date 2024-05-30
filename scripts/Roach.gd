@@ -45,11 +45,16 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	if !invulnerability_timer.is_stopped():
+		velocity.x = 0
+	else:
+		velocity.x = SPEED
+		
 	# Turns on ledge
 	if !$RayCast2D.is_colliding() && is_on_floor() || $FaceRayCast.is_colliding() && is_on_floor():
 		flip()
 		
-	velocity.x = SPEED
+	
 	move_and_slide()
 
 # Turns enemy around
@@ -64,5 +69,8 @@ func flip():
 
 # Attacked by tony
 func _on_hit_box_area_2d_area_entered(area):
-	if area.name == "AttackBoxArea2D":
+	if area.name == "AttackBoxArea2D" && invulnerability_timer.is_stopped():
+		invulnerability_timer.start()
 		_damage(1)
+			
+		
