@@ -6,10 +6,10 @@ signal spent_coins()
 var coins : int = 0
 var ammo : int = 10
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var learned_double_jump = false
-var learned_dash = false
-var learned_attack = false
-var learned_shooting = false
+var learned_double_jump = true
+var learned_dash = true
+var learned_attack = true
+var learned_shooting = true
 
 var items = {
 	0: {

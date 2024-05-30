@@ -3,13 +3,16 @@ class_name Player
 
 var SPEED = 300.0
 var JUMP_VELOCITY = -500.0
-@onready var sprite_2d = $Sprite2D
-@onready var healthbar = $Healthbar
+@onready var sprite_2d = $Marker2D/Sprite2D
+@onready var healthbar = $Marker2D/Healthbar
 @onready var attack_timer = $AttackTimer
 @onready var invulnerability_timer = $InvulnerabilityTimer
-@onready var attack_box = $AttackBoxArea2D/HitBoxCollisionShape2D
-@onready var hurt_box = $HurtBoxArea2D
+@onready var attack_box = $Marker2D/AttackBoxArea2D/HitBoxCollisionShape2D
+@onready var hurt_box = $Marker2D/HurtBoxArea2D
+@onready var marker_2d = $Marker2D
 var vulnerable = true
+var facing_left = false
+
 
 
 # Variable for bullet
@@ -75,16 +78,15 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("left", "right") 
+	var direction = Input.get_axis("left", "right")
+	
 	# Handles hitbox h_flip
-	if direction < 0:
-		attack_box.position.x = -35
-		hurt_box.scale.x = -1
-
-	if direction > 0:
-		attack_box.position.x = 35
-		hurt_box.scale.x = 1
-
+	if direction < 0: #left
+		marker_2d.scale.x = -1
+		#hurt_box.scale.x = -1
+		#attack_box.position.x = -20
+	elif direction > 0:
+		marker_2d.scale.x = 1
 		
 	if direction and !isDashing:
 		velocity.x = direction * SPEED
@@ -119,12 +121,6 @@ func _physics_process(delta):
 	
 
 	move_and_slide()
-	
-	# Correct left turn
-	if direction > 0:
-		sprite_2d.flip_h = false
-	elif direction < 0:
-		sprite_2d.flip_h = true
 
 # Player spawn
 func _ready():
