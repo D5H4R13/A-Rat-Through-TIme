@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://o8d7k6a6ckjr" path="res://assets/tutorial/tilemaps/StoneTileSet.png" id="1_bpag5"]
 [ext_resource type="Texture2D" uid="uid://bd2hx7fjy5gee" path="res://assets/tutorial/background/cavebgpara4.png" id="1_c7hd8"]
 [ext_resource type="Texture2D" uid="uid://cex527lnbbty8" path="res://assets/tutorial/background/cavebgpara3.png" id="2_nrn7w"]
-[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/enemy.tscn" id="2_tl727"]
+[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/Roach.tscn" id="2_tl727"]
 [ext_resource type="Texture2D" uid="uid://diplyu0qexi2y" path="res://assets/tutorial/background/cavebgpara2.png" id="3_736l1"]
 [ext_resource type="PackedScene" uid="uid://blr8r7l5ygafu" path="res://scene/Rat.tscn" id="3_il7q7"]
 [ext_resource type="Texture2D" uid="uid://cyvhwh7rup7s1" path="res://assets/tutorial/background/cavebgpara1.png" id="4_qecf2"]

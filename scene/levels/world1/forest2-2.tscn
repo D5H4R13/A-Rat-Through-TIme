@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://blsv7aklk4df8" path="res://scene/level functions/big_platform.tscn" id="9_jo0ox"]
 [ext_resource type="Script" path="res://scripts/spinningblade.gd" id="10_lr1ba"]
 [ext_resource type="Texture2D" uid="uid://wdgta6gdv3ty" path="res://assets/base assets/tilesets/SpinningBladeOn(38x38).png" id="11_1thrb"]
-[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/enemy.tscn" id="12_tpbcv"]
+[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/Roach.tscn" id="12_tpbcv"]
 [ext_resource type="PackedScene" uid="uid://e00my7ykduql" path="res://scene/pooper.tscn" id="13_7s5ws"]
 [ext_resource type="PackedScene" uid="uid://hsy3i27supja" path="res://scene/Squirrel.tscn" id="14_q66ag"]
 [ext_resource type="PackedScene" uid="uid://k8e1kb743pfq" path="res://scene/coin.tscn" id="15_6jd75"]
