@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://ito8lqcfxhrf" path="res://scene/ui_manager.tscn" id="9_t4p0e"]
 [ext_resource type="Texture2D" uid="uid://cmqx7onkrxn5l" path="res://assets/base assets/tony/Tony with sword/test_rat2_walk_with_sword_animation-Sheet.png" id="12_mwwg8"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urstt"]
+size = Vector2(21.8007, 101.373)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ki4nd"]
 atlas = ExtResource("4_q2s5w")
 region = Rect2(0, 0, 32, 32)
@@ -524,15 +527,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_urstt"]
-size = Vector2(21.8007, 101.373)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocxy8"]
+size = Vector2(25, 40)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6thek"]
 radius = 12.0
 height = 42.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocxy8"]
-size = Vector2(21, 40)
 
 [node name="Tony" type="CharacterBody2D"]
 collision_layer = 4
@@ -540,50 +540,10 @@ script = ExtResource("1_yaib4")
 BULLET = ExtResource("2_cfclk")
 dash_trail_node = ExtResource("2_tmk3n")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(1.625, 2.1975)
-sprite_frames = SubResource("SpriteFrames_s6ko7")
-animation = &"attack"
-autoplay = "idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4.16072, 1)
 scale = Vector2(0.932145, 0.453771)
 shape = SubResource("RectangleShape2D_urstt")
-
-[node name="Checkpoint Detector" type="Area2D" parent="."]
-position = Vector2(-2.38419e-07, -2.38419e-07)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint Detector"]
-position = Vector2(5, 0)
-shape = SubResource("CapsuleShape2D_6thek")
-
-[node name="HurtBoxArea2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBoxArea2D"]
-position = Vector2(1, 0)
-polygon = PackedVector2Array(1, -15, 1, -9, -3, -5, -7, 3, -7, 20, -1, 24, 8, 24, 11, 19, 7, -6, 18, -4, 9, -22, 4, -22)
-
-[node name="AttackBoxArea2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-monitoring = false
-
-[node name="HitBoxCollisionShape2D" type="CollisionShape2D" parent="AttackBoxArea2D"]
-position = Vector2(29.5, -2)
-shape = SubResource("RectangleShape2D_ocxy8")
-disabled = true
-
-[node name="Healthbar" parent="." instance=ExtResource("3_xqasi")]
-offset_left = -13.0
-offset_top = -46.0
-offset_right = 26.0
-offset_bottom = -40.0
-metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -600,5 +560,51 @@ one_shot = true
 
 [node name="UI_Manager" parent="." instance=ExtResource("9_t4p0e")]
 
-[connection signal="area_entered" from="HurtBoxArea2D" to="." method="_on_hurt_box_area_2d_area_entered"]
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(5, 0)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Marker2D"]
+texture_filter = 1
+position = Vector2(-5, 0)
+scale = Vector2(1.625, 2.1975)
+sprite_frames = SubResource("SpriteFrames_s6ko7")
+animation = &"attack"
+autoplay = "idle"
+
+[node name="Healthbar" parent="Marker2D" instance=ExtResource("3_xqasi")]
+offset_left = -18.0
+offset_top = -46.0
+offset_right = 21.0
+offset_bottom = -40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AttackBoxArea2D" type="Area2D" parent="Marker2D"]
+position = Vector2(-5, 0)
+collision_layer = 4
+collision_mask = 2
+monitoring = false
+
+[node name="HitBoxCollisionShape2D" type="CollisionShape2D" parent="Marker2D/AttackBoxArea2D"]
+position = Vector2(28, -2)
+shape = SubResource("RectangleShape2D_ocxy8")
+disabled = true
+
+[node name="Checkpoint Detector" type="Area2D" parent="Marker2D"]
+position = Vector2(-5, -2.38419e-07)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Checkpoint Detector"]
+position = Vector2(5, 0)
+shape = SubResource("CapsuleShape2D_6thek")
+
+[node name="HurtBoxArea2D" type="Area2D" parent="Marker2D"]
+position = Vector2(-5, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Marker2D/HurtBoxArea2D"]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(1, -15, 1, -9, -3, -5, -7, 3, -7, 20, -1, 24, 8, 24, 11, 19, 7, -6, 18, -4, 9, -22, 4, -22)
+
 [connection signal="timeout" from="Dash_Trail_Timer" to="." method="_on_dash_trail_timer_timeout"]
+[connection signal="area_entered" from="Marker2D/HurtBoxArea2D" to="." method="_on_hurt_box_area_2d_area_entered"]
