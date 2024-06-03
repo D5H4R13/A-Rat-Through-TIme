@@ -181,7 +181,7 @@ func dash():
 	isDashing = true # Setting true at start to deal with physics conflicts up there
 	
 	# Gets direction of dash from where the sprite is facing
-	if sprite_2d.flip_h: # This spaghetti was the best global facing direction I could find
+	if marker_2d.scale.x < 0: # This spaghetti was the best global facing direction I could find
 		velocity = Vector2(SPEED * -2.25, 0) # Only a change in X velocity and not Y
 	else:
 		velocity = Vector2(SPEED * 2.25, 0)
