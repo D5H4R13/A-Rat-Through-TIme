@@ -25,3 +25,16 @@ func _on_area_2d_area_entered(area):
 		sprite_2d.hide()
 		consumed = true
 		
+
+
+func _on_area_2d_body_entered(body):
+	#print(area.get_parent() is Player, consumed)
+	if body.name == "Tony":
+		# Get the values from Rat to type less
+		var jump_count = GameManager.player.jump_count
+		var max_jumps = GameManager.player.jump_max
+		
+		# Won't reduce jump_count to a negative value
+		GameManager.player.jump_count = clamp(jump_count - 1, 0, max_jumps)
+		sprite_2d.hide()
+		consumed = true

@@ -390,7 +390,7 @@ sources/0 = SubResource("TileSetAtlasSource_hrbrr")
 [node name="Node2D2" type="Node2D"]
 
 [node name="Tony" parent="." instance=ExtResource("2_gbkve")]
-position = Vector2(1336, -1800)
+position = Vector2(-339, 397)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_rjwrc")]
 position = Vector2(-255, 402)

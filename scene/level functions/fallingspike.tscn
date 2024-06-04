@@ -24,6 +24,7 @@ scale = Vector2(0.3, 1.1)
 polygon = PackedVector2Array(-10, -12.7273, 10, -12.7273, 0, 11.8182)
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+texture_filter = 1
 collision_mask = 4
 monitorable = false
 
@@ -31,5 +32,5 @@ monitorable = false
 position = Vector2(0, 139)
 shape = SubResource("RectangleShape2D_1o5rm")
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

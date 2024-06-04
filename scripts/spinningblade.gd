@@ -12,6 +12,6 @@ func _ready():
 func _process(delta):
 	path_follow.progress += speed * delta
 
-func _on_area_2d_area_entered(area):
-	if area.get_parent() is Player:
-		area.get_parent()._damage(1)
+func _on_area_2d_body_entered(body):
+	if body.name == "Tony":
+		GameManager.player._damage(1)

@@ -106,10 +106,10 @@ func _physics_process(delta):
 	
 	# Handles shooting
 	if Input.is_action_just_pressed("right_click") and GameManager.ammo > 0 and GameManager.learned_shooting:
-		var left_or_right = sprite_2d.flip_h
+		var left = (marker_2d.scale.x == -1)
 		var up_or_down = Input.get_axis("up","down")
 		if up_or_down == 0:
-			if left_or_right:
+			if left:
 				_shoot(Vector2.LEFT)
 			else:
 				_shoot(Vector2.RIGHT)

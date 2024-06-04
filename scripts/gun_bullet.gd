@@ -18,14 +18,9 @@ func _process(delta):
 	global_position += direction * speed * delta
 
 
-func _on_attack_box_area_2d_area_entered(area):
-	if not(area.get_parent() is Player):
-		queue_free()
-
-
 func _on_attack_box_area_2d_body_entered(body):
 	
-	if body is TileMap:
+	if body is TileMap || body.name != "Tony":
 		queue_free()
 
 

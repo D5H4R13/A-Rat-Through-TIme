@@ -41,7 +41,7 @@ func _physics_process(delta):
 		target = ray_cast_2d.get_collider()
 		
 		
-		if target.get_parent() is Player:
+		if target.get_parent().get_parent() is Player:
 			if reload_timer.is_stopped():
 				shit()
 	

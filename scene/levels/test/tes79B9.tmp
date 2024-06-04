@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkww065jf6j7l"]
+[gd_scene load_steps=4 format=3 uid="uid://bkww065jf6j7l"]
 
 [ext_resource type="PackedScene" uid="uid://blr8r7l5ygafu" path="res://scene/Rat.tscn" id="1_3041l"]
 [ext_resource type="PackedScene" uid="uid://jgyon26wo2cd" path="res://scene/levels/test/platform.tscn" id="2_lww0n"]
+[ext_resource type="PackedScene" uid="uid://beaojotoc53s8" path="res://scene/level functions/fallingspike.tscn" id="3_ibo5p"]
 
 [node name="Testing_level" type="Node2D"]
 
@@ -12,3 +13,6 @@ position = Vector2(88, 392)
 
 [node name="Platform2" parent="." instance=ExtResource("2_lww0n")]
 position = Vector2(305, -56)
+
+[node name="FallingSpike" parent="." instance=ExtResource("3_ibo5p")]
+position = Vector2(248, 252)

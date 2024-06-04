@@ -10,6 +10,6 @@ func activate():
 	activated = true
 	$AnimatedSprite2D.play("activated")
 
-func _on_area_2d_area_entered(area):
-	if area.get_parent() is Player && !activated:
+func _on_area_2d_body_entered(body):
+	if body.name == "Tony" and !activated:
 		activate()

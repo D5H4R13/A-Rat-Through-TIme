@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddhkdyqncn462"]
 
 [ext_resource type="Script" path="res://scripts/Glock17.gd" id="1_ahwbi"]
-[ext_resource type="Texture2D" uid="uid://bfpr0xd7s0bch" path="res://assets/test/glock 17.jpg" id="2_wkn32"]
+[ext_resource type="Texture2D" uid="uid://cuhf3f6n3vcqa" path="res://assets/test/glock 17.jpg" id="2_wkn32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13v7o"]
 size = Vector2(32, 28)

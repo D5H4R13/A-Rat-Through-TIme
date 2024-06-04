@@ -7,7 +7,6 @@ func _ready():
 	start()
 func start():
 	dialogue = load_dialogue()
-	print(dialogue[0])
 	$NinePatchRect/Name.text = dialogue[0]["name"]
 	$NinePatchRect/Chat.text = dialogue[0]["chat"]
 

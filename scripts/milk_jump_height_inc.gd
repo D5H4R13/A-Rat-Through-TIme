@@ -21,10 +21,9 @@ func reset_jump_height():
 		sprite_2d.show()
 		consumed = false
 
-func _on_area_2d_area_entered(area):
-	#print(area.name, area.get_parent())
+func _on_area_2d_body_entered(body):
 	# If this is Tony
-	if area.get_parent() is Player and !consumed:
+	if body.name == "Tony":
 		# Now the buff is consumed
 		GameManager.player.JUMP_VELOCITY += -200
 		sprite_2d.hide()
