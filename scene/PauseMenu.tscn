@@ -43,15 +43,10 @@ layout_mode = 2
 text = "Restart
 "
 
-[node name="WorldSeclect" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "World Select"
-
 [node name="Quit" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Restart" to="PauseMenu" method="_on_restart_pressed"]
-[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/WorldSeclect" to="PauseMenu" method="_on_world_seclect_pressed"]
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Quit" to="PauseMenu" method="_on_quit_pressed"]

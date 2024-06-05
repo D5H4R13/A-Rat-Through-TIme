@@ -1,4 +1,5 @@
 extends Control
+
 var world_select_packed: PackedScene = preload("res://scene/world and level select/world_select.tscn")
 var world_select_scene: Control = world_select_packed.instantiate()
 
@@ -25,10 +26,6 @@ func _on_restart_pressed():
 	resume()
 	get_tree().reload_current_scene()
 
-func _on_world_seclect_pressed():
-	#get_tree().change_scene_to_file("res://scene/world and level select/world_select.tscn")
-	pass
-	
 func _on_quit_pressed():
 	get_tree().quit()
 
