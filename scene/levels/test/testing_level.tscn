@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkww065jf6j7l"]
+[gd_scene load_steps=4 format=3 uid="uid://bkww065jf6j7l"]
 
 [ext_resource type="PackedScene" uid="uid://blr8r7l5ygafu" path="res://scene/Rat.tscn" id="1_3041l"]
 [ext_resource type="PackedScene" uid="uid://jgyon26wo2cd" path="res://scene/levels/test/platform.tscn" id="2_lww0n"]
+[ext_resource type="PackedScene" uid="uid://3r427nn5kidw" path="res://scene/level functions/future_vending_machine.tscn" id="3_pvf17"]
 
 [node name="Testing_level" type="Node2D"]
-
-[node name="Tony" parent="." instance=ExtResource("1_3041l")]
-position = Vector2(88, 392)
 
 [node name="Platform" parent="." instance=ExtResource("2_lww0n")]
 
 [node name="Platform2" parent="." instance=ExtResource("2_lww0n")]
 position = Vector2(305, -56)
+
+[node name="VendingMachine" parent="." instance=ExtResource("3_pvf17")]
+position = Vector2(268, 377)
+
+[node name="Tony" parent="." instance=ExtResource("1_3041l")]
+position = Vector2(88, 392)

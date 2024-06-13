@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ffnbogjsdmxn"]
+[gd_scene load_steps=5 format=3 uid="uid://ffnbogjsdmxn"]
 
 [ext_resource type="Script" path="res://scene/healthbar.gd" id="1_jr3ij"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1u62w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cv3o"]
 bg_color = Color(0, 0.615686, 0.384314, 1)
@@ -20,10 +18,8 @@ shadow_offset = Vector2(0, 1)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="Healthbar" type="ProgressBar"]
-z_index = 1
 offset_right = 240.0
 offset_bottom = 4.0
-theme_override_styles/background = SubResource("StyleBoxEmpty_1u62w")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0cv3o")
 value = 60.0
 show_percentage = false
