@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://blr8r7l5ygafu"]
+[gd_scene load_steps=85 format=3 uid="uid://blr8r7l5ygafu"]
 
 [ext_resource type="Script" path="res://scripts/Rat.gd" id="1_yaib4"]
 [ext_resource type="Texture2D" uid="uid://bchse30vwfhkb" path="res://assets/base assets/tony/test_rat2_idle-Sheet.png" id="2_5yt6x"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cavetnynucehj" path="res://assets/base assets/tony/Tony with sword/test_rat_falling_w_sword.png" id="9_rtcv8"]
 [ext_resource type="PackedScene" uid="uid://ito8lqcfxhrf" path="res://scene/ui_manager.tscn" id="9_t4p0e"]
 [ext_resource type="Texture2D" uid="uid://cmqx7onkrxn5l" path="res://assets/base assets/tony/Tony with sword/test_rat2_walk_with_sword_animation-Sheet.png" id="12_mwwg8"]
-[ext_resource type="PackedScene" uid="uid://dyogrw143k20i" path="res://scene/PauseMenu.tscn" id="16_7urfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urstt"]
 size = Vector2(21.8007, 101.373)
@@ -607,8 +606,6 @@ collision_mask = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Marker2D/HurtBoxArea2D"]
 position = Vector2(1, 0)
 polygon = PackedVector2Array(1, -15, 1, -9, -3, -5, -7, 3, -7, 20, -1, 24, 8, 24, 11, 19, 7, -6, 18, -4, 9, -22, 4, -22)
-
-[node name="PauseUi" parent="." instance=ExtResource("16_7urfo")]
 
 [connection signal="timeout" from="Dash_Trail_Timer" to="." method="_on_dash_trail_timer_timeout"]
 [connection signal="area_entered" from="Marker2D/HurtBoxArea2D" to="." method="_on_hurt_box_area_2d_area_entered"]

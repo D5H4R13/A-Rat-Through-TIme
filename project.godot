@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 GameManager="*res://scripts/GameManager.gd"
 Functions="*res://scripts/Functions.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
 [input]
 
 esc={

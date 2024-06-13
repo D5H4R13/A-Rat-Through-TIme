@@ -26,58 +26,58 @@ texture = ExtResource("2_c7qmw")
 expand_mode = 1
 
 [node name="LevelIcon0" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("3_mx7wg")]
-offset_left = 93.0
-offset_top = 158.0
-offset_right = 157.0
-offset_bottom = 222.0
+offset_left = 110.0
+offset_top = 168.0
+offset_right = 174.0
+offset_bottom = 232.0
 level_name = "0"
 next_scene_path = "res://scene/levels/tutorial/tutorial1-1.tscn"
 next_level_down = NodePath("../LevelIcon1")
 
 [node name="LevelIcon1" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down") instance=ExtResource("3_mx7wg")]
-offset_left = 158.0
-offset_top = 271.0
-offset_right = 222.0
-offset_bottom = 335.0
+offset_left = 178.0
+offset_top = 402.0
+offset_right = 242.0
+offset_bottom = 466.0
 next_scene_path = "res://scene/levels/world1/forest1-1.tscn"
 next_level_up = NodePath("../LevelIcon0")
 next_level_down = NodePath("../LevelIcon2")
 
 [node name="LevelIcon2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down") instance=ExtResource("3_mx7wg")]
-offset_left = 262.0
-offset_top = 360.0
-offset_right = 326.0
-offset_bottom = 424.0
+offset_left = 317.0
+offset_top = 649.0
+offset_right = 381.0
+offset_bottom = 713.0
 level_name = "2"
 next_scene_path = "res://scene/levels/world1/forest2-1.tscn"
 next_level_up = NodePath("../LevelIcon1")
 next_level_down = NodePath("../LevelIcon3")
 
 [node name="LevelIcon3" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("3_mx7wg")]
-offset_left = 328.0
-offset_top = 456.0
-offset_right = 392.0
-offset_bottom = 520.0
+offset_left = 492.0
+offset_top = 787.0
+offset_right = 556.0
+offset_bottom = 851.0
 level_name = "3"
 next_scene_path = "res://scene/levels/world1/2-3-1.tscn"
 next_level_up = NodePath("../LevelIcon2")
 next_level_right = NodePath("../LevelIcon4")
 
 [node name="LevelIcon4" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("3_mx7wg")]
-offset_left = 568.0
-offset_top = 480.0
-offset_right = 632.0
-offset_bottom = 544.0
+offset_left = 696.0
+offset_top = 908.0
+offset_right = 760.0
+offset_bottom = 972.0
 level_name = "4"
 next_scene_path = "res://scene/levels/world1/2-4-2.tscn"
 next_level_up = NodePath("../LevelIcon5")
 next_level_left = NodePath("../LevelIcon3")
 
 [node name="LevelIcon5" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down") instance=ExtResource("3_mx7wg")]
-offset_left = 656.0
-offset_top = 368.0
-offset_right = 720.0
-offset_bottom = 432.0
+offset_left = 1118.0
+offset_top = 992.0
+offset_right = 1182.0
+offset_bottom = 1056.0
 level_name = "5"
 next_level_up = NodePath("../LevelIcon0")
 next_level_down = NodePath("../LevelIcon4")

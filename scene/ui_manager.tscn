@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ito8lqcfxhrf"]
+[gd_scene load_steps=5 format=3 uid="uid://ito8lqcfxhrf"]
 
 [ext_resource type="Script" path="res://scripts/UI_Manager.gd" id="1_jyj0c"]
 [ext_resource type="Texture2D" uid="uid://bdnyspapwr6e3" path="res://assets/base assets/items.png" id="2_wbynk"]
 [ext_resource type="Texture2D" uid="uid://uwm4am6ii6fb" path="res://assets/base assets/ammo.png" id="3_ggvx3"]
+[ext_resource type="PackedScene" uid="uid://dyogrw143k20i" path="res://scene/PauseMenu.tscn" id="4_tdi4v"]
 
 [node name="UI_Manager" type="CanvasLayer"]
 script = ExtResource("1_jyj0c")
@@ -34,3 +35,5 @@ offset_top = 24.0
 offset_right = 40.0
 offset_bottom = 49.0
 metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_tdi4v")]

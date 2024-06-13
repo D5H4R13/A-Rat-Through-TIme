@@ -25,36 +25,43 @@ grow_vertical = 2
 texture = ExtResource("2_kfj3o")
 expand_mode = 1
 
+[node name="LevelIcon0" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("3_u8kdv")]
+offset_left = 520.0
+offset_top = 625.0
+offset_right = 584.0
+offset_bottom = 689.0
+next_level_down = NodePath("../LevelIcon2")
+
 [node name="LevelIcon1" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("3_u8kdv")]
-offset_left = 216.0
-offset_top = 200.0
-offset_right = 280.0
-offset_bottom = 264.0
+offset_left = 520.0
+offset_top = 625.0
+offset_right = 584.0
+offset_bottom = 689.0
 next_level_down = NodePath("../LevelIcon2")
 
 [node name="LevelIcon2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("3_u8kdv")]
-offset_left = 216.0
-offset_top = 336.0
-offset_right = 280.0
-offset_bottom = 400.0
+offset_left = 522.0
+offset_top = 814.0
+offset_right = 586.0
+offset_bottom = 878.0
 level_name = "2"
 next_level_up = NodePath("../LevelIcon1")
 next_level_right = NodePath("../LevelIcon3")
 
 [node name="LevelIcon3" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("3_u8kdv")]
-offset_left = 392.0
-offset_top = 344.0
-offset_right = 456.0
-offset_bottom = 408.0
+offset_left = 939.0
+offset_top = 728.0
+offset_right = 1003.0
+offset_bottom = 792.0
 level_name = "3"
 next_level_left = NodePath("../LevelIcon2")
 next_level_right = NodePath("../LevelIcon4")
 
 [node name="LevelIcon4" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("3_u8kdv")]
-offset_left = 672.0
-offset_top = 360.0
-offset_right = 736.0
-offset_bottom = 424.0
+offset_left = 1246.0
+offset_top = 758.0
+offset_right = 1310.0
+offset_bottom = 822.0
 level_name = "4"
 next_level_up = NodePath("../LevelIcon6")
 next_level_down = NodePath("../LevelIcon5")
@@ -62,35 +69,35 @@ next_level_left = NodePath("../LevelIcon3")
 next_level_right = NodePath("../LevelIcon8")
 
 [node name="LevelIcon5" parent="." node_paths=PackedStringArray("next_level_up") instance=ExtResource("3_u8kdv")]
-offset_left = 544.0
-offset_top = 456.0
-offset_right = 608.0
-offset_bottom = 520.0
+offset_left = 1222.0
+offset_top = 930.0
+offset_right = 1286.0
+offset_bottom = 994.0
 level_name = "5"
 next_level_up = NodePath("../LevelIcon4")
 
 [node name="LevelIcon6" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down") instance=ExtResource("3_u8kdv")]
-offset_left = 640.0
-offset_top = 240.0
-offset_right = 704.0
-offset_bottom = 304.0
+offset_left = 1435.0
+offset_top = 543.0
+offset_right = 1499.0
+offset_bottom = 607.0
 level_name = "6"
 next_level_up = NodePath("../LevelIcon7")
 next_level_down = NodePath("../LevelIcon4")
 
 [node name="LevelIcon7" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("3_u8kdv")]
-offset_left = 592.0
-offset_top = 128.0
-offset_right = 656.0
-offset_bottom = 192.0
+offset_left = 1723.0
+offset_top = 468.0
+offset_right = 1787.0
+offset_bottom = 532.0
 level_name = "7"
 next_level_down = NodePath("../LevelIcon6")
 
 [node name="LevelIcon8" parent="." node_paths=PackedStringArray("next_level_left") instance=ExtResource("3_u8kdv")]
-offset_left = 840.0
-offset_top = 488.0
-offset_right = 904.0
-offset_bottom = 552.0
+offset_left = 1770.0
+offset_top = 984.0
+offset_right = 1834.0
+offset_bottom = 1048.0
 level_name = "8"
 next_level_left = NodePath("../LevelIcon4")
 

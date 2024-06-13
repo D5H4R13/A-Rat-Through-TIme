@@ -1,10 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyogrw143k20i"]
+[gd_scene load_steps=5 format=3 uid="uid://dyogrw143k20i"]
 
 [ext_resource type="Script" path="res://scripts/PauseMenu.gd" id="1_x3ieq"]
+[ext_resource type="FontFile" uid="uid://vqs1tfvmwaai" path="res://assets/Font/lunchtime-doubly-so/lunchds.ttf" id="2_1todm"]
 
-[node name="PauseUi" type="CanvasLayer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2j5jh"]
+bg_color = Color(0, 0.152941, 0.286275, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_size = 5
 
-[node name="PauseMenu" type="Control" parent="."]
+[sub_resource type="Theme" id="Theme_0hijg"]
+Button/styles/normal = SubResource("StyleBoxFlat_2j5jh")
+VBoxContainer/constants/separation = 6
+
+[node name="PauseMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +33,20 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_x3ieq")
 
-[node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 10.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.266667, 0.266667, 0.266667, 0.498039)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -25,28 +55,42 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -85.0
 offset_top = -57.5
-offset_right = 85.0
-offset_bottom = 57.5
+offset_right = 115.0
+offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_0hijg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer"]
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+layout_mode = 2
+color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Resume" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1todm")
 text = "Resume"
 
-[node name="Restart" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer"]
+[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1todm")
 text = "Restart
 "
 
-[node name="Quit" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Restart" to="PauseMenu" method="_on_restart_pressed"]
-[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/Quit" to="PauseMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
