@@ -546,7 +546,9 @@ scale = Vector2(0.932145, 0.453771)
 shape = SubResource("RectangleShape2D_urstt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 0)
 zoom = Vector2(1.4, 1.4)
+position_smoothing_speed = 2.0
 
 [node name="Dash_Trail_Timer" type="Timer" parent="."]
 wait_time = 0.1

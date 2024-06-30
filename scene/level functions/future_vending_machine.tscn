@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://3r427nn5kidw"]
 
 [ext_resource type="Script" path="res://scripts/future_vending_machine.gd" id="1_sp4ae"]
-[ext_resource type="Texture2D" uid="uid://c330m4a2xlktm" path="res://assets/base assets/Vending_machine.png" id="2_up17b"]
-[ext_resource type="PackedScene" uid="uid://d38kidgx7415f" path="res://scene/level functions/ShopMenu.tscn" id="3_wv110"]
+[ext_resource type="Texture2D" uid="uid://8y6jrhlfs1ms" path="res://assets/base assets/VendingMachie.webp" id="2_biqcc"]
+[ext_resource type="PackedScene" uid="uid://n2aanq445lk1" path="res://scene/level functions/VendingShop.tscn" id="3_61ikw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a386g"]
 size = Vector2(52, 78)
@@ -18,11 +18,17 @@ position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_a386g")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(-1, 0)
-scale = Vector2(0.146484, 0.158203)
-texture = ExtResource("2_up17b")
+position = Vector2(-2, -1.19209e-07)
+scale = Vector2(0.0612343, 0.0814145)
+texture = ExtResource("2_biqcc")
+region_enabled = true
+region_rect = Rect2(154, 62, 739, 927)
 
-[node name="ShopMenu" parent="Area2D" instance=ExtResource("3_wv110")]
+[node name="ShopMenu" parent="Area2D" instance=ExtResource("3_61ikw")]
+offset_left = -178.0
+offset_top = -90.0
+offset_right = -178.0
+offset_bottom = -90.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

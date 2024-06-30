@@ -1,0 +1,353 @@
+[gd_scene load_steps=21 format=3 uid="uid://n2aanq445lk1"]
+
+[ext_resource type="Script" path="res://scripts/VendingShop.gd" id="1_fd37y"]
+[ext_resource type="Texture2D" uid="uid://21dluakd26em" path="res://assets/base assets/dialogue_box.png" id="2_a5w62"]
+[ext_resource type="Texture2D" uid="uid://bdnyspapwr6e3" path="res://assets/base assets/items.png" id="3_2dss4"]
+[ext_resource type="Script" path="res://scene/level functions/KeyPad.gd" id="4_bffnm"]
+[ext_resource type="FontFile" uid="uid://vqs1tfvmwaai" path="res://assets/Font/lunchtime-doubly-so/lunchds.ttf" id="5_7ilvr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ksqy"]
+atlas = ExtResource("3_2dss4")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfony"]
+atlas = ExtResource("3_2dss4")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37q23"]
+atlas = ExtResource("3_2dss4")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0s1i"]
+atlas = ExtResource("3_2dss4")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dddtr"]
+atlas = ExtResource("3_2dss4")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk0sb"]
+atlas = ExtResource("3_2dss4")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g5hf"]
+atlas = ExtResource("3_2dss4")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6likq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ksqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfony")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37q23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0s1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dddtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk0sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g5hf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqo83"]
+bg_color = Color(0.160784, 0.160784, 0.160784, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.333333, 0.333333, 0.333333, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="FontVariation" id="FontVariation_5uvq5"]
+
+[sub_resource type="Theme" id="Theme_3uf8c"]
+default_font = SubResource("FontVariation_5uvq5")
+Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_wqo83")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ieg54"]
+font = ExtResource("5_7ilvr")
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_widug"]
+
+[sub_resource type="Theme" id="Theme_0dkwu"]
+Button/styles/normal = null
+
+[sub_resource type="Theme" id="Theme_yx144"]
+
+[node name="Control" type="Control"]
+process_mode = 3
+visible = false
+z_index = 2
+layout_mode = 3
+anchor_right = 0.193
+anchor_bottom = 0.171
+offset_right = -370.56
+offset_bottom = -184.68
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fd37y")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(0.294118, 0.294118, 0.294118, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = -7.0
+offset_top = -2.0
+offset_right = 457.0
+offset_bottom = 183.0
+texture = ExtResource("2_a5w62")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(391, 163)
+sprite_frames = SubResource("SpriteFrames_6likq")
+autoplay = "default"
+frame_progress = 0.110644
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+anchor_bottom = 1.17965e+07
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 362.0
+
+[node name="KeyPad" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("4_bffnm")
+
+[node name="KeyPad" type="VBoxContainer" parent="HBoxContainer/KeyPad"]
+layout_mode = 2
+theme = SubResource("Theme_3uf8c")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/KeyPad/KeyPad"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ieg54")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/KeyPad/KeyPad"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Row1" type="HBoxContainer" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer2"]
+layout_mode = 2
+
+[node name="1" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer2/Row1"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme = SubResource("Theme_widug")
+text = "1"
+
+[node name="2" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer2/Row1"]
+layout_mode = 2
+text = "2"
+
+[node name="3" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer2/Row1"]
+layout_mode = 2
+text = "3"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/KeyPad/KeyPad"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Row2" type="HBoxContainer" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer3"]
+layout_mode = 2
+
+[node name="4" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer3/Row2"]
+layout_mode = 2
+text = "4"
+
+[node name="5" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer3/Row2"]
+layout_mode = 2
+text = "5"
+
+[node name="6" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer3/Row2"]
+layout_mode = 2
+text = "6"
+
+[node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer/KeyPad/KeyPad"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Row3" type="HBoxContainer" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer5"]
+layout_mode = 2
+
+[node name="7" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer5/Row3"]
+layout_mode = 2
+text = "7"
+
+[node name="8" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer5/Row3"]
+layout_mode = 2
+text = "8"
+
+[node name="9" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer5/Row3"]
+layout_mode = 2
+text = "9"
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/KeyPad/KeyPad"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Row4" type="HBoxContainer" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer4"]
+layout_mode = 2
+
+[node name="C" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer4/Row4"]
+layout_mode = 2
+text = "C
+"
+
+[node name="0" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer4/Row4"]
+layout_mode = 2
+text = "0"
+
+[node name="Ok" type="Button" parent="HBoxContainer/KeyPad/KeyPad/MarginContainer4/Row4"]
+layout_mode = 2
+theme = SubResource("Theme_0dkwu")
+text = ">"
+
+[node name="Items" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+
+[node name="ItemTabs" type="TabContainer" parent="HBoxContainer/Items"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+clip_tabs = false
+
+[node name="Cola" type="TabBar" parent="HBoxContainer/Items/ItemTabs"]
+layout_mode = 2
+
+[node name="Cola" type="Label" parent="HBoxContainer/Items/ItemTabs/Cola"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -1.0
+offset_right = -42.0
+offset_bottom = 74.0
+text = "Cola Serum: CODE = 8
+Description: this item
+allows you to run faster"
+
+[node name="Brace" type="TabBar" parent="HBoxContainer/Items/ItemTabs"]
+visible = false
+layout_mode = 2
+
+[node name="Fortified Brace" type="Label" parent="HBoxContainer/Items/ItemTabs/Brace"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 2.0
+offset_right = 230.0
+offset_bottom = 103.0
+text = "Fortified Brace: CODE = 12
+Description: this item grants
+immunity for 30s
+Cost: 35"
+
+[node name="Adrenaline" type="TabBar" parent="HBoxContainer/Items/ItemTabs"]
+visible = false
+layout_mode = 2
+
+[node name="Adrenaline" type="Label" parent="HBoxContainer/Items/ItemTabs/Adrenaline"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_right = 233.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Adrenaline: CODE = 25
+Description: this item 
+grants speed and jump boost
+Cost: 25"
+
+[node name="Bullet" type="TabBar" parent="HBoxContainer/Items/ItemTabs"]
+visible = false
+layout_mode = 2
+
+[node name="Bullet" type="Label" parent="HBoxContainer/Items/ItemTabs/Bullet"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 165.0
+offset_bottom = 76.0
+text = "Ammo: CODE = 30
+Description: 1 bullet
+Cost: 5"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 2.0
+offset_right = 452.0
+offset_bottom = 33.0
+theme = SubResource("Theme_yx144")
+text = "x"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 151.0
+offset_right = 442.0
+offset_bottom = 174.0
+
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer2/Row1/1" to="HBoxContainer/KeyPad" method="pressed_1"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer2/Row1/2" to="HBoxContainer/KeyPad" method="pressed_2"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer2/Row1/3" to="HBoxContainer/KeyPad" method="pressed_3"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer3/Row2/4" to="HBoxContainer/KeyPad" method="pressed_4"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer3/Row2/5" to="HBoxContainer/KeyPad" method="pressed_5"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer3/Row2/6" to="HBoxContainer/KeyPad" method="pressed_6"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer5/Row3/7" to="HBoxContainer/KeyPad" method="pressed_7"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer5/Row3/8" to="HBoxContainer/KeyPad" method="pressed_8"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer5/Row3/9" to="HBoxContainer/KeyPad" method="pressed_9"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer4/Row4/C" to="HBoxContainer/KeyPad" method="pressed_c"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer4/Row4/0" to="HBoxContainer/KeyPad" method="pressed_0"]
+[connection signal="pressed" from="HBoxContainer/KeyPad/KeyPad/MarginContainer4/Row4/Ok" to="HBoxContainer/KeyPad" method="pressed_ok"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

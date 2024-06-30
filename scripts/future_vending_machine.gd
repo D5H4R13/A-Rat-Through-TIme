@@ -17,4 +17,3 @@ func _input(event):
 	if event.is_action_pressed("interact") && shopping:
 		get_tree().paused = true
 		$Area2D/ShopMenu.visible = true
-		

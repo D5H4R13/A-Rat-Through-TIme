@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c330m4a2xlktm"
-path="res://.godot/imported/Vending_machine.png-551e284cf7d790b2392ab2920ab0ed78.ctex"
+uid="uid://8y6jrhlfs1ms"
+path="res://.godot/imported/VendingMachie.webp-ca4f0775cf1428b0c9bde747ddfd2e81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/base assets/Vending_machine.png"
-dest_files=["res://.godot/imported/Vending_machine.png-551e284cf7d790b2392ab2920ab0ed78.ctex"]
+source_file="res://assets/base assets/VendingMachie.webp"
+dest_files=["res://.godot/imported/VendingMachie.webp-ca4f0775cf1428b0c9bde747ddfd2e81.ctex"]
 
 [params]
 
