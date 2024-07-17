@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2atbv04dmljy"]
+
+[ext_resource type="Script" path="res://scripts/PopUp.gd" id="1_2js1r"]
+[ext_resource type="FontFile" uid="uid://rw7cdxj3bquw" path="res://assets/Font/Silkscreen/Silkscreen-Bold.ttf" id="2_dvg8k"]
+
+[sub_resource type="Animation" id="Animation_0kmiy"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.566, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ckfvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.518]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_norq6"]
+_data = {
+"RESET": SubResource("Animation_ckfvc"),
+"show": SubResource("Animation_0kmiy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4f6p"]
+size = Vector2(160, 80)
+
+[node name="PopUp" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_2js1r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 499.0
+offset_bottom = 53.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.431373)
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect"]
+layout_mode = 0
+offset_right = 492.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("2_dvg8k")
+text = "some text we want to display when
+the player moves through a trigger area"
+horizontal_alignment = 1
+autowrap_mode = 3
+visible_characters = 37
+visible_ratio = 0.518
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../MarginContainer/ColorRect/Label")
+libraries = {
+"": SubResource("AnimationLibrary_norq6")
+}
+
+[node name="Detect" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+process_mode = 3
+position = Vector2(241, 49)
+shape = SubResource("RectangleShape2D_w4f6p")
+
+[connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]
