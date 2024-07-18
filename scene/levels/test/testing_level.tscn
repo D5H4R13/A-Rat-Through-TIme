@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://blr8r7l5ygafu" path="res://scene/Rat.tscn" id="1_3041l"]
 [ext_resource type="PackedScene" uid="uid://jgyon26wo2cd" path="res://scene/levels/test/platform.tscn" id="2_lww0n"]
-[ext_resource type="PackedScene" uid="uid://b2atbv04dmljy" path="res://scene/level functions/PopUp.tscn" id="3_uhqdg"]
+[ext_resource type="PackedScene" uid="uid://b1ppkef85f5qu" path="res://scene/Roach.tscn" id="3_fqgmf"]
 
 [node name="Testing_level" type="Node2D"]
 
@@ -14,5 +14,5 @@ position = Vector2(305, -56)
 [node name="Tony" parent="." instance=ExtResource("1_3041l")]
 position = Vector2(88, 392)
 
-[node name="PopUp" parent="." instance=ExtResource("3_uhqdg")]
-position = Vector2(-3, 323)
+[node name="roach" parent="." instance=ExtResource("3_fqgmf")]
+position = Vector2(456, 346)
