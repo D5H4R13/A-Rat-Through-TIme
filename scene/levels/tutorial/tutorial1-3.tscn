@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfctt8lmux5uf"]
+[gd_scene load_steps=17 format=3 uid="uid://dfctt8lmux5uf"]
 
 [ext_resource type="Texture2D" uid="uid://o8d7k6a6ckjr" path="res://assets/tutorial/tilemaps/StoneTileSet.png" id="1_bpag5"]
 [ext_resource type="Texture2D" uid="uid://bd2hx7fjy5gee" path="res://assets/tutorial/background/cavebgpara4.png" id="1_c7hd8"]
@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://braiwgvsufs2f" path="res://scene/level functions/spinningblade.tscn" id="5_gdc1g"]
 [ext_resource type="PackedScene" uid="uid://bjyuk1hhxssc2" path="res://scene/level functions/checkpoint.tscn" id="7_fqwsa"]
 [ext_resource type="PackedScene" uid="uid://dtw1nh2smuhfq" path="res://scene/level functions/finish.tscn" id="8_h6r3t"]
+[ext_resource type="PackedScene" uid="uid://dqcjkr0fu8sc2" path="res://scene/world and level select/world_select.tscn" id="8_mciie"]
 [ext_resource type="PackedScene" uid="uid://ddhkdyqncn462" path="res://scene/glock_17.tscn" id="9_oakpr"]
-[ext_resource type="PackedScene" uid="uid://dbkb5xy6vaohl" path="res://scene/levels/tutorial/tutorial1-4.tscn" id="12_tufvf"]
+[ext_resource type="PackedScene" uid="uid://b2atbv04dmljy" path="res://scene/level functions/PopUp.tscn" id="14_hul8h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aips6"]
 texture = ExtResource("1_bpag5")
@@ -341,46 +342,6 @@ sources/0 = SubResource("TileSetAtlasSource_aips6")
 
 [node name="Node2D2" type="Node2D"]
 
-[node name="Background" type="ParallaxBackground" parent="."]
-scroll_offset = Vector2(-1697.03, 424.348)
-
-[node name="Layer 1" type="ParallaxLayer" parent="Background"]
-position = Vector2(4, -2)
-motion_scale = Vector2(0.3, 1)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Background/Layer 1"]
-texture_filter = 1
-position = Vector2(640, -632)
-scale = Vector2(5, 5)
-texture = ExtResource("1_c7hd8")
-
-[node name="Layer 2" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0.6, 1)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Background/Layer 2"]
-position = Vector2(640, -632)
-scale = Vector2(5, 5)
-texture = ExtResource("2_nrn7w")
-
-[node name="Layer 3" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0.8, 1)
-motion_mirroring = Vector2(1280, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Background/Layer 3"]
-position = Vector2(640, -632)
-scale = Vector2(5, 5)
-texture = ExtResource("3_736l1")
-
-[node name="Layer 4" type="ParallaxLayer" parent="Background"]
-motion_mirroring = Vector2(1280, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Background/Layer 4"]
-position = Vector2(640, -632)
-scale = Vector2(5, 5)
-texture = ExtResource("4_qecf2")
-
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 scale = Vector2(3, 3)
@@ -433,7 +394,55 @@ position = Vector2(155, 504)
 
 [node name="Finish" parent="." instance=ExtResource("8_h6r3t")]
 position = Vector2(1672, -289)
-target_level = ExtResource("12_tufvf")
+target_level = ExtResource("8_mciie")
 
 [node name="Glock17" parent="." instance=ExtResource("9_oakpr")]
 position = Vector2(564, 595)
+
+[node name="PopUp" parent="." instance=ExtResource("14_hul8h")]
+position = Vector2(194, 525)
+my_text = "Wow i wonder who left this"
+
+[node name="Background" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-1212, 835.757)
+
+[node name="Layer 1" type="ParallaxLayer" parent="Background"]
+position = Vector2(4, -2)
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Layer 1"]
+texture_filter = 1
+position = Vector2(640, -632)
+scale = Vector2(5, 5)
+texture = ExtResource("1_c7hd8")
+
+[node name="Layer 2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Layer 2"]
+position = Vector2(640, -632)
+scale = Vector2(5, 5)
+texture = ExtResource("2_nrn7w")
+
+[node name="Layer 3" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Layer 3"]
+position = Vector2(640, -632)
+scale = Vector2(5, 5)
+texture = ExtResource("3_736l1")
+
+[node name="Layer 4" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Layer 4"]
+position = Vector2(640, -632)
+scale = Vector2(5, 5)
+texture = ExtResource("4_qecf2")
+
+[node name="PopUp2" parent="." instance=ExtResource("14_hul8h")]
+position = Vector2(-140, -352)
+my_text = "To dash press shift. It can be done in the air too"
