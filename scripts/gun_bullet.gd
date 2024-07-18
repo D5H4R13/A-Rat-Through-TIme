@@ -21,6 +21,7 @@ func _process(delta):
 func _on_attack_box_area_2d_body_entered(body):
 	
 	if body is TileMap || body.name != "Tony":
+		await get_tree().create_timer(.05).timeout
 		queue_free()
 
 

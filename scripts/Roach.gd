@@ -72,5 +72,4 @@ func _on_hit_box_area_2d_area_entered(area):
 	if area.name == "AttackBoxArea2D" && invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
 		_damage(1)
-			
 		
