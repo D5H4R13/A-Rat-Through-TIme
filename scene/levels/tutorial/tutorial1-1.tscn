@@ -841,6 +841,10 @@ my_text = "something about those pizzas makes me think I can double jump I have 
 position = Vector2(716, -866)
 my_text = "Press s or down arrow key"
 
+[node name="PopUp10" parent="." instance=ExtResource("22_eudxd")]
+position = Vector2(1210, -715)
+my_text = "Cheese will lead me"
+
 [node name="PopUp6" parent="." instance=ExtResource("22_eudxd")]
 position = Vector2(-2817, -1383)
 my_text = "AHHHHHHH"
